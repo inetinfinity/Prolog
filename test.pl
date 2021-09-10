@@ -41,15 +41,15 @@ lastmem([_|Y],X) :- lastmem(Y,X).
 
 
 
-% rev([a,b,c],Ys).
-rev(Xs,Ys) :- rev(Xs,Ys,[]).
-rev([],Ys,Ys).
-rev([R1|R2],Ys,Zs) :- rev(R2,Ys,[R1|Zs]).
+% rev([a,b,c],Ys). ok ver.1
+%rev(Xs,Ys) :- rev(Xs,Ys,[]).
+%rev([],Ys,Ys).
+%rev([R1|R2],Ys,Zs) :- rev(R2,Ys,[R1|Zs]).
 
-
-
-%rev([Y1|Y],Y1) :- rev(Y,Z).
-
+% rev([a,b,c],Ys). ok ver.2
+rev(Xs,Ys) :- rev(Xs,Ys,Xs,Ys,[],[]).
+rev(Xs,Ys,[],[],Ys,Xs).
+rev(Xs,Ys,[X1|X2],[Y1|Y2],X,Y) :- rev(Xs,Ys,X2,Y2,[X1|X],[Y1|Y]).
 
 
 insert(X,[],[X]).
