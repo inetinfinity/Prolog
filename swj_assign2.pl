@@ -15,7 +15,9 @@ loyalto(Y1) :- \+(ruler(Y1)),!.
 loyalto(X4,Y1) :- \+(tryassassinate(X4,Y1)).
 
 % Suwaroj-Assignment2: 2.1
-
+rev(Xs,Ys) :- rev(Xs,Ys,[]).
+rev([],Ys,Ys).
+rev([R1|R2],Ys,Zs) :- rev(R2,Ys,[R1|Zs]).
 
 % Suwaroj-Assignment2: 2.2
 lastmem([],_).
